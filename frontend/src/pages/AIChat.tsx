@@ -47,7 +47,7 @@ export default function AIChat() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/chat/message`,
+        `${import.meta.env.VITE_API_URL}/chat/message`,
         {
           method: 'POST',
           headers: {
