@@ -77,12 +77,14 @@ process.on('unhandledRejection', (reason) => {
   logger.error(`Unhandled rejection: ${reason}`);
 });
 
-const server = app.listen(PORT, () => {
-  logger.info(`MediSure AI Backend running on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  const server = app.listen(PORT, () => {
+    logger.info(`MediSure AI Backend running on port ${PORT}`);
+  });
 
-server.on('error', (err) => {
-  logger.error(`Server error: ${err}`);
-});
+  server.on('error', (err) => {
+    logger.error(`Server error: ${err}`);
+  });
+}
 
 export default app;
