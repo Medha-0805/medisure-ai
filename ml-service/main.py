@@ -13,7 +13,11 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:5000"],
+    allow_origins=[
+    "http://localhost:5173",
+    "http://localhost:5000",
+    "https://scintillating-manatee-8af5c1.netlify.app",
+],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
